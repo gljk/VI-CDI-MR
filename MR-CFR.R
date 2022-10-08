@@ -10,8 +10,6 @@ cohortFertility$Kohorta <- as.factor(cohortFertility$Kohorta)
 
 levels(cohortFertility$Kohorta) <- c("15-40","15-49")
 
-
-
 CFRgg <-
   ggplot(data = cohortFertility,
          aes(
@@ -23,13 +21,13 @@ CFRgg <-
              "Žene rođene <b>%s</b>. su od svoje %s god. u proseku rodile <b>%s</b> dece",
              Cohorts,
              Kohorta,
-             `Stopa Kumulativnog Fertiliteta`
+             format(`Stopa Kumulativnog Fertiliteta`,decimal.mark = ",")
            )
            )) +
   geom_line(aes(linetype = Kohorta)) + theme_minimal() + ylab(NULL) +
   scale_y_continuous(
     breaks = seq(1.5, 2, by = 0.1),
-    labels = seq(1.5, 2, by = 0.1),
+    labels = format(seq(1.5, 2, by = 0.1),decimal.mark = ","),
     limits = c(1.5, 1.9)
   ) +
   scale_x_continuous(
@@ -41,3 +39,4 @@ CFRgg <-
   ylab("Prosečan broj dece")
 
 ggplotly(CFRgg, tooltip="text")
+
