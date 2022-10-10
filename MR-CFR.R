@@ -35,8 +35,8 @@ CFRgg <-
     labels = seq(1930, 1975, by = 5),
     limits = c(1930, 1975)
   ) + scale_color_manual(values = c("#ef3b2c", "#cb181d"))+ scale_linetype_manual(values = c(2,1))+
-  guides(linetype = guide_legend(title = "Starost"), color= guide_legend(title = NULL)) + xlab("Godina rođenja") +
-  ylab("Prosečan broj dece")
-
+  guides(linetype = guide_legend(title = "Starost"), color= guide_legend(title = NULL)) + xlab("&nbsp; \nGodina rođenja\n &nbsp;") +
+  ylab("&nbsp; \nProsečan broj dece\n &nbsp;\n")
+CFRgg
 ggplotly(CFRgg, tooltip="text")
 
